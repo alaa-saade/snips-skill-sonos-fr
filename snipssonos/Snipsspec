@@ -11,8 +11,8 @@ intents:
   - intent: radioOn
     action: |
       {%
-      if intent.radio_name != None:
-        skill.turn_on_radio(intent.radio_name)
+      if intent.radio_name_fr != None:
+        skill.turn_on_radio(intent.radio_name_fr)
       skill.set_to_previous_volume()
       %}
   - intent: speakerInterrupt
@@ -26,17 +26,17 @@ intents:
   - intent: playPlaylist
     action: |
       {%
-      skill.play_playlist(intent.playlist_name, _shuffle=(intent.playlist_lecture_mode is not None and intent.playlist_lecture_mode == "shuffle")); skill.set_to_previous_volume()
+      skill.play_playlist(intent.playlist_name_fr, _shuffle=(intent.playlistModeLecture is not None and intent.playlistModeLecture == "shuffle")); skill.set_to_previous_volume()
       %}
   - intent: playArtist
     action: |
-      {% skill.play_artist(intent.artist_name); skill.set_to_previous_volume() %}
+      {% skill.play_artist(intent.artist); skill.set_to_previous_volume() %}
   - intent: playSong
     action: |
-      {% skill.play_song(intent.song_name); skill.set_to_previous_volume() %}
+      {% skill.play_song(intent.song); skill.set_to_previous_volume() %}
   - intent: playAlbum
     action: |
-      {% skill.play_album(intent.album_name, _shuffle=(intent.album_lecture_mode is not None and intent.album_lecture_mode == "shuffle")); skill.set_to_previous_volume() %}
+      {% skill.play_album(intent.album, _shuffle=(intent.album_lecture_mode is not None and intent.album_lecture_mode == "shuffle")); skill.set_to_previous_volume() %}
   - intent: resumeMusic
     action: |
       {% skill.play(); skill.set_to_previous_volume() %}

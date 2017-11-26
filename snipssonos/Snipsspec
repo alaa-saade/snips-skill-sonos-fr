@@ -19,10 +19,10 @@ intents:
     action: "pause_sonos"
   - intent: volumeUp
     action: |
-      {% skill.set_to_previous_volume(); skill.volume_up(intent.volume_higher) %}
+      {% skill.set_to_previous_volume(); skill.volume_up(intent.volume_higher_fr) %}
   - intent: volumeDown
     action: |
-      {% skill.set_to_previous_volume(); skill.volume_down(intent.volume_lower) %}
+      {% skill.set_to_previous_volume(); skill.volume_down(intent.volume_lower_fr) %}
   - intent: playPlaylist
     action: |
       {%
